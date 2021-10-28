@@ -67,9 +67,8 @@ class MeanStrategy(BaseStrategy):
         if numResponses == 0:
             return data
         else:
-            for k in data:
-                data[k] //= numResponses
-            return dict(data)
+            data = {k : v // numResponses for (k, v) in data.items()}
+            return data
 
 class ModeStrategy(BaseStrategy):
     """Uses most common value of each response field.
