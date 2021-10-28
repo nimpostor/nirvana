@@ -1,13 +1,7 @@
 #!/bin/python3
 
 from mock import MockAPI1, MockAPI2, MockAPI3
-from enum import Enum
-
-class Strategy(Enum):
-    AVG = 0
-    MIN = 1
-    MAX = 2
-    COUNT = 3
+from strategy import *
 
 class CoalesceAPI:
     def __init__(self):
@@ -28,18 +22,7 @@ class CoalesceAPI:
             pass
             #return get_max_count(responses)
         else:
-            return self.get_avg(responses)
-
-    def get_avg(self, responses):
-        data = {}
-        for response in responses:
-            for k, v in response.items():
-                if k not in data: data[k] = v
-                else: data[k] += v
-                
-        for k, v in data.items():
-            data[k] //= len(responses)
-        return data
+            return AvgStrategy.execute(responses)
 
 if __name__ == '__main__':
     x = CoalesceAPI()
