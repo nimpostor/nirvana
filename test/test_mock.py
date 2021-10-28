@@ -4,7 +4,7 @@
 Test suite for MockAPI class.
 """
 
-from mock import MockAPI
+from coalesce.mock import MockAPI
 import unittest
 
 class NoFilenameInitTestCase(unittest.TestCase):

@@ -5,8 +5,8 @@ API providing access to health insurance member data from mock APIs,
 coalesced using a configurable strategy.
 """
 
-from mock import MockAPI1, MockAPI2, MockAPI3
-from strategy import *
+from .mock import MockAPI1, MockAPI2, MockAPI3
+from .strategy import *
 
 class CoalesceAPI:
     """Class to coalesce and return data from mock APIs.

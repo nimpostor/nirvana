@@ -4,7 +4,7 @@
 Test suite for coalescing strategies.
 """
 
-from strategy import *
+from coalesce.strategy import *
 import unittest
 
 class MinStrategyTestCase(unittest.TestCase):

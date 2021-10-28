@@ -4,8 +4,8 @@
 Test suite for CoalesceAPI.
 """
 
-from coalesce import CoalesceAPI
-from strategy import Strategy
+from coalesce.coalesce import CoalesceAPI
+from coalesce.strategy import Strategy
 import unittest
 
 class CoalesceAPITestCase(unittest.TestCase):
