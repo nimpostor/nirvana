@@ -1,14 +1,27 @@
 #!/bin/python3
 
+"""
+API providing access to health insurance member data from mock APIs,
+coalesced using a configurable strategy.
+"""
+
 from mock import MockAPI1, MockAPI2, MockAPI3
 from strategy import *
 
 class CoalesceAPI:
+    """Class to coalesce and return data from mock APIs.
+    Uses mean strategy as default.
+    """
+
     def __init__(self):
+        """Constructor."""
         self.apis = [MockAPI1(), MockAPI2(), MockAPI3()]
         self.strategy = MeanStrategy
 
-    def set_strategy(strategy: Strategy) -> int:
+    def set_strategy(self, strategy: Strategy) -> int:
+        """Switch coalescing strategy during runtime.
+        Returns 0 on success, -1 on failure..
+        """
         if strategy == Strategy.MIN:
             self.strategy = MinStrategy
             return 0
@@ -20,16 +33,14 @@ class CoalesceAPI:
             return 0
         elif strategy == Strategy.MODE:
             self.strategy = ModeStrategy
+            return 0
         else:
             return -1
 
     def get(self, member_id: str) -> dict:
+        """Get coalesced health insurance data using member_id."""
         responses = []
         for api in self.apis:
             responses.append(api.get(member_id))
 
         return self.strategy.execute(responses)
-
-if __name__ == '__main__':
-    x = CoalesceAPI()
-    print(x.get('1'))
