@@ -20,8 +20,10 @@ class CoalesceAPI:
 
     def set_strategy(self, strategy: Strategy) -> int:
         """Switch coalescing strategy during runtime.
-        Returns 0 on success, -1 on failure..
+        Returns 0 on success, -1 on failure.
         """
+
+        # TODO: change to match statement
         if strategy == Strategy.MIN:
             self.strategy = MinStrategy
             return 0
