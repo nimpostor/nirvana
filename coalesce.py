@@ -6,18 +6,20 @@ from strategy import *
 class CoalesceAPI:
     def __init__(self):
         self.apis = [MockAPI1(), MockAPI2(), MockAPI3()]
-        self.strategy = AvgStrategy
+        self.strategy = MeanStrategy
 
     def set_strategy(strategy: Strategy) -> int:
-        if strategy == Strategy.AVG:
-            self.strategy = AvgStrategy
-            return 0
-        elif strategy == Strategy.MIN:
+        if strategy == Strategy.MIN:
             self.strategy = MinStrategy
             return 0
         elif strategy == Strategy.MAX:
             self.strategy = MaxStrategy
             return 0
+        elif strategy == Strategy.MEAN:
+            self.strategy = MeanStrategy
+            return 0
+        elif strategy == Strategy.MODE:
+            self.strategy = ModeStrategy
         else:
             return -1
 
