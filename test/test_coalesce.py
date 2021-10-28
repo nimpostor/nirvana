@@ -23,13 +23,13 @@ class CoalesceAPITestCase(unittest.TestCase):
     def test_get_data_default(self):
         self.assertEqual(
             self.api.get('1'),
-            {'deductible' : 1066, 'stop_loss' : 11000, 'oop_max' : 5666})
+            {'deductible': 1066, 'stop_loss': 11000, 'oop_max': 5666})
 
     def test_get_data_configured(self):
         self.api.set_strategy(Strategy.MAX)
         self.assertEqual(
             self.api.get('1'),
-            {'deductible' : 1200, 'stop_loss' : 13000, 'oop_max' : 6000})
+            {'deductible': 1200, 'stop_loss': 13000, 'oop_max': 6000})
 
 if __name__ == '__main__':
     unittest.main()

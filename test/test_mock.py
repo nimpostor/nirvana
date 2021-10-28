@@ -45,7 +45,7 @@ class GoodInitTestCase(unittest.TestCase):
     def test_get_data_present(self):
         self.assertEqual(
             self.api.get('1'),
-            {'deductible' : 1000, 'stop_loss' : 10000, 'oop_max' : 5000})
+            {'deductible': 1000, 'stop_loss': 10000, 'oop_max': 5000})
 
     def test_get_data_absent(self):
         self.assertEqual(self.api.get('2'), {})

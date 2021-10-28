@@ -67,7 +67,7 @@ class MeanStrategy(BaseStrategy):
         if numResponses == 0:
             return data
         else:
-            data = {k : v // numResponses for (k, v) in data.items()}
+            data = {k: v // numResponses for (k, v) in data.items()}
             return data
 
 class ModeStrategy(BaseStrategy):
@@ -84,5 +84,5 @@ class ModeStrategy(BaseStrategy):
         if not dd:
             return {}
         else:
-            data = {k : max(v, key=v.count) for (k, v) in dd.items()}
+            data = {k: max(v, key=v.count) for (k, v) in dd.items()}
             return data
