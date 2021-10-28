@@ -19,7 +19,7 @@ class MockAPI:
         return str(self.data)
 
     def _read(self, filename):
-        """Load member data from JSON file."""
+        """Load member data from JSON file. For internal use only."""
         try:
             with open(filename, 'r') as file:
                 self.data = json.loads(file.read())
